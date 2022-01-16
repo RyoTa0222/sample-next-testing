@@ -36,3 +36,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## メモ
 
 jest の expect 関数の toBeInTheDocument メソッドなどは@testing-library/jest-dom で提供されている
+
+元の sample ソースでは以下のライブラリをファイルごとに import していたが、共通部分で設定するように変更
+
+```ts
+import '@testing-library/jest-dom/extend-expect'
+```
+
+流れとしては、まず`jest-setup.ts`ファイルを作成し、上記のコードを貼り付ける
+
+その後、package.json の jest オブジェクトの中（もしくは、jest.config.js）で以下を記述
+
+```json
+"setupFilesAfterEnv": [
+    "<rootDir>/jest-setup.ts"
+]
+```

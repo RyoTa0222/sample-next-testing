@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-import '@testing-library/jest-dom/extend-expect'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { StateProvider } from '../context/StateProvider'
@@ -23,6 +22,6 @@ describe('Global state management (useContext)', () => {
     userEvent.click(screen.getByRole('button'))
     expect(screen.getByTestId('toggle-a').textContent).toBe('true')
     expect(screen.getByTestId('toggle-b').textContent).toBe('true')
-    screen.debug()
+    // screen.debug()
   })
 })
